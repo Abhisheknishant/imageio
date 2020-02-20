@@ -107,9 +107,9 @@ install:
     - pip install invoke scikit-build
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
-        python -m pip install -q --upgrade imageio-ffmpeg;
-        python -m pip install -q numpy pillow psutil coveralls;
-        python -m pip install -q --upgrade pytest pytest-cov;
+        sudo pip install -q --upgrade imageio-ffmpeg;
+        sudo pip install -q numpy pillow psutil coveralls;
+        sudo pip install -q --upgrade pytest pytest-cov;
       fi;
     - if [ "${TEST_STYLE}" == "1" ]; then
         pip install -q black flake8 sphinx numpydoc;
