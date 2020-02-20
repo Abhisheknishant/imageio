@@ -107,9 +107,9 @@ install:
     - pip install invoke scikit-build
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
-        pip install -q --upgrade imageio-ffmpeg;
-        pip install -q numpy pillow psutil coveralls;
-        pip install -q --upgrade pytest pytest-cov;
+        python -m pip install -q --upgrade imageio-ffmpeg;
+        python -m pip install -q numpy pillow psutil coveralls;
+        python -m pip install -q --upgrade pytest pytest-cov;
       fi;
     - if [ "${TEST_STYLE}" == "1" ]; then
         pip install -q black flake8 sphinx numpydoc;
@@ -117,6 +117,7 @@ install:
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     - if [ "${TEST_FULL}" == "1" ]; then
+       pip install cmake;
        pip install simpleitk astropy;
       fi;
     # Install imageio on one/some env
