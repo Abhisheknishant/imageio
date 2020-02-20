@@ -6,6 +6,7 @@ addons:
   apt:
     packages:
     - libfreeimage3
+    - ffmpeg
 
 # Only run travis build on push for master branch
 branches:
@@ -44,6 +45,18 @@ matrix:
       env: TEST_UNIT=1 TEST_FULL=1
     - os: linux
       dist: xenial
+      arch: arm64
+      sudo: true
+      python: "3.7"
+      env: TEST_UNIT=1 TEST_FULL=1
+    - os: linux
+      dist: xenial
+      sudo: true
+      python: "3.8-dev"
+      env: TEST_UNIT=1
+    - os: linux
+      dist: xenial
+      arch: arm64
       sudo: true
       python: "3.8-dev"
       env: TEST_UNIT=1
