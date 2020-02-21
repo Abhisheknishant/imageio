@@ -6,7 +6,6 @@ addons:
   apt:
     packages:
     - libfreeimage3
-    - ffmpeg
 
 # Only run travis build on push for master branch
 branches:
@@ -105,7 +104,7 @@ install:
         pip install --upgrade pip;
       fi;
     # Install dependencies depending on ENV
-    - pip install invoke scikit-build
+    - pip install invoke scikit-build numpy imageio-ffmpeg;
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
         pip install -q --upgrade imageio-ffmpeg;
@@ -117,10 +116,10 @@ install:
       fi;
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
-    - if [ "${TEST_FULL}" == "1" ]; then
-       sudo python -m pip install cmake==3.16.1;
-       pip install simpleitk astropy;
-      fi;
+    #- if [ "${TEST_FULL}" == "1" ]; then
+    #   pip install cmake;
+    #   pip install simpleitk astropy;
+    #  fi;
     # Install imageio on one/some env
     - if [ "${TEST_INSTALL}" == "1" ]; then
        python setup.py build_with_fi install;
