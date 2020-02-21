@@ -104,7 +104,10 @@ install:
         pip install --upgrade pip;
       fi;
     # Install dependencies depending on ENV
-    - pip install invoke scikit-build numpy imageio-ffmpeg;
+    - pip install invoke scikit-build;
+    - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+       sudo pip install numpy imageio-ffmpeg;
+      fi;
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
         pip install -q --upgrade imageio-ffmpeg;
