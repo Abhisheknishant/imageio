@@ -15,7 +15,6 @@ branches:
 
 # Cache image data
 cache:
-  - pip
   - directories:
     - $HOME/.imageio/images
 
