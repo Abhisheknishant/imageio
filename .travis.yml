@@ -104,6 +104,7 @@ install:
         pip install --upgrade pip;
       fi;
     # Install dependencies depending on ENV
+    - sudo chmod -R +x $HOME/.cache
     - pip install invoke scikit-build
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
