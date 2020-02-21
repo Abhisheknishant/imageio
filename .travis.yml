@@ -109,8 +109,8 @@ install:
        sudo pip install numpy imageio-ffmpeg;
       fi;
     - invoke clean
-    - if [ "${TEST_UNIT}" == "1" ]; then
     #    pip install -q --upgrade imageio-ffmpeg;
+    - if [ "${TEST_UNIT}" == "1" ]; then
         pip install -q numpy pillow psutil coveralls;
         pip install -q --upgrade pytest pytest-cov;
       fi;
