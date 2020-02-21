@@ -101,6 +101,7 @@ install:
         choco install python3;
         export PATH=/c/Python38:/c/Python38/Scripts:/c/Python37:/c/Python37/Scripts:$PATH;
       else
+        export PATH=/usr/bin:$PATH;
         pip install --upgrade pip;
       fi;
     # Install dependencies depending on ENV
